@@ -6,6 +6,7 @@ import DiagHistory from './components/DiagHistory'
 import axios from 'axios'
 import DiagList from './components/DiagList'
 import ProfileCard from './components/ProfileCard'
+import Reports from './components/Reports'
 
 function App() {
   const [patientsData, setPatientsData] = useState([])
@@ -25,15 +26,19 @@ function App() {
   }, [])
 
   return (
-    <div className='flex h-screen'>
+    <div className='flex flex-col sm:flex-row md:h-screen gap-4 bg-blue-500 p-2'>
       <PatientsList patientsData={patientsData} />
       {selectedPateint &&
         <>
-          <div className='flex flex-col h-full   w-1/2 border '>
+          <div className='flex flex-col h-full  w-full sm:w-3/5 gap-4 '>
             <DiagHistory selectedPateint={selectedPateint} />
             <DiagList patient={selectedPateint} />
           </div>
-          <ProfileCard patient={selectedPateint} />
+          <div className='flex flex-col h-full  md:w-1/4  gap-2'>
+            <ProfileCard patient={selectedPateint} />
+            <Reports patient={selectedPateint} />
+
+          </div>
         </>
       }
     </div>

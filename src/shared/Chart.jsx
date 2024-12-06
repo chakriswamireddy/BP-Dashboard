@@ -11,6 +11,7 @@ import {
     Legend,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
+import { useMediaQuery } from "react-responsive";
 
 // Register Chart.js modules
 ChartJS.register(
@@ -30,11 +31,11 @@ function Chart({ patient }) {
     // console.log( typeof datasets)
 
     const data = {
-        labels: patient?.diagnosis_history?.map((item) => item.month + " " + item.year),
+        labels: patient?.diagnosis_history?.map((item) => item.month + " " + item.year).slice(0,6),
         datasets: [
             {
                 label: "Systolic",
-                data: patient?.diagnosis_history?.map((item) => item.blood_pressure.systolic.value),
+                data: patient?.diagnosis_history?.map((item) => item.blood_pressure.systolic.value).slice(0,6),
                 backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(275,192,192,1)",
                 borderWidth: 2,
@@ -43,7 +44,7 @@ function Chart({ patient }) {
 
             {
                 label: "Diastolic",
-                data: patient?.diagnosis_history?.map((item) => item.blood_pressure.diastolic.value),
+                data: patient?.diagnosis_history?.map((item) => item.blood_pressure.diastolic.value).slice(0,6),
                 backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(75,192,192,1)",
                 borderWidth: 2,
@@ -64,19 +65,25 @@ function Chart({ patient }) {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
-                position: "top",
+                position: "right",
             },
             title: {
-                display: true,
+                display: false,
                 text: "Blood Pressure",
                 
             },
+        },
             scales: {
                 x: {
                     ticks:{
-                        size:3,
+                        font: {
+                            size: 8, 
+                        },
+                        align:'center'
+                        
                     },
                   border: {
                     display: false,
@@ -86,12 +93,12 @@ function Chart({ patient }) {
                   }
                 }
             }
-        },
     };
 
     return (
-        <div style={{ width: "600px", height: '500px' }}>
-            <Line data={data} options={options} />
+        <div style={{ height: '200px', width:'100%' }} className="border   mx-auto">
+
+            <Line data={data} options={options} height={700}  />
 
         </div>
 

@@ -3,50 +3,45 @@ import Chart from '../shared/Chart'
 import lungsSvg from "../assets/icons/lungs.svg";
 import tempSvg from "../assets/icons/temperature.svg";
 import heartSvg from "../assets/icons/HeartBPM.svg";
+import DiagSubBox from '../shared/DiagSubBox';
 
 
-function DiagHistory({selectedPateint}) {
+function DiagHistory({ selectedPateint }) {
   // console.log(selectedPateint?.diagnosis_history[0])
-    
+
   return (
-    <div className='flex flex-col h-2/3'>
-    <div>Diagonal History</div>
-    {/* {selectedPateint} */}
+    <div className='flex flex-col h-2/3 bg-white rounded-xl p-4 gap-2'>
+      <div>Diagonal History</div>
+      {/* {selectedPateint} */}
 
 
-        <Chart patient={selectedPateint}  />
-        <div className='flex'>
-            {/* ['Respiratory Rate','Temperature','Heart Rate'] */}
+      <Chart patient={selectedPateint} />
+      <div className='flex gap-2 justify-center' >
+       
+        <DiagSubBox color={'blue'} title={'Respiratory Rate'} value={`${selectedPateint?.diagnosis_history[0].respiratory_rate.value} bpm`}
+          img={lungsSvg} level={selectedPateint?.diagnosis_history[0].respiratory_rate.levels  } />
 
-            <div className='bg-blue-100 w-1/3 h-48  border-4 flex flex-col pl-4 '>
-                <img src={lungsSvg} className='size-20 rounded background-white self-center ' />
 
-                <p className='font-thin'> Respiratory Rate  </p>
-                <p> {selectedPateint?.diagnosis_history[0].respiratory_rate.value} bpm </p>
-                <p> {selectedPateint?.diagnosis_history[0].respiratory_rate.levels} </p>
+        <DiagSubBox
+          color={'red'}
+          title={'Temperature'}
+          value={`${selectedPateint?.diagnosis_history[0].temperature.value} °F`}
+          img={tempSvg}
+          level={selectedPateint?.diagnosis_history[0].temperature.levels}
+        />
 
-            </div>
-            <div className='bg-red-100 w-1/3 h-48  border-4 '>
-                <img src={tempSvg} className='size-20 rounded background-white' />
+        <DiagSubBox
+          color={'pink'}
+          title={'Heart Rate'}
+          value={`${selectedPateint?.diagnosis_history[0].heart_rate.value} bpm`}
+          img={heartSvg}
+          level={selectedPateint?.diagnosis_history[0].heart_rate.levels}
+        />
 
-                <p> Temperature  </p>
-                <p> {selectedPateint?.diagnosis_history[0].temperature.value} °F </p>
-                <p> {selectedPateint?.diagnosis_history[0].temperature.levels} </p>
-
-            </div>
-            <div className='bg-pink-100 w-1/3 h-48  border-4'>
-                <img src={heartSvg} className='size-20 rounded background-white' />
-
-                <p> Heart Rate  </p>
-                <p> {selectedPateint?.diagnosis_history[0].heart_rate.value} bpm </p>
-                <p> {selectedPateint?.diagnosis_history[0].heart_rate.levels} </p>
-
-            </div>
+      </div>
 
     </div>
 
-    </div>
-    
   )
 }
 

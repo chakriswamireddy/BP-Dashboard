@@ -10,15 +10,15 @@ function PatientsList({patientsData}) {
   
 
     return (
-        <div className='w-1/5 shadow-xl rounded-md p-2 h-screen overflow-y-auto' >
+        <div className='sm:w-1/5  shadow-xl rounded-lg p-2 h-60   md:h-full  bg-white' >
 
-            <div className='flex justify-between'>
+            <div className='flex justify-between mb-1'>
                 <p className='font-bold'> Patients  </p>
                 <img src={searchSvg} alt="search" />
             </div>
 
 
-            <div className='flex flex-col'>
+            <div className='flex flex-col min-w-60   overflow-y-auto' style={{height:'90%'}}>
                 {patientsData && patientsData.length > 0 && patientsData.map((patient, index) => (
                     <MiniPatient key={index} patient={patient} />
                 ))}

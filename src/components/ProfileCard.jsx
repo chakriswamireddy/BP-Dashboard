@@ -11,12 +11,12 @@ function ProfileCard({ patient}) {
 
 
   return (
-    <div className=' flex flex-col'>
-        <img src={patient?.profile_picture} alt="profile_pic" />
-        <p> {patient?.name} </p>
+    <div className=' flex flex-col bg-white items-start gap-2 w-full rounded-xl py-2'>
+        <img src={patient?.profile_picture} alt="profile_pic" className='size-20 sm:size-32 self-center' />
+        <p className='self-center mb-2'> {patient?.name} </p>
 
 
-        <ProfileSubDetails title={'Date of Birth'} value={patient?.date_of_birth} img={dateSvg} />
+        <ProfileSubDetails title={'Date of Birth'} value={patient?.date_of_birth} img={dateSvg}  />
 
         <ProfileSubDetails title={'Gender'} value={patient?.gender} img={patient?.gender=='male'? maleSvg:femaleSvg } />
         <ProfileSubDetails title={'Contact Info'} value={ patient?.phone_number}  img={callSvg}/>
@@ -24,7 +24,7 @@ function ProfileCard({ patient}) {
 
         <ProfileSubDetails title={'Insurance Provider'} value={ patient?.insurance_type} img={shieldSvg} />
       
-
+        <button className='btn bg-cyan-100 py-2 px-4 rounded-full text-xs font-bold self-center'> Show All Information </button>
     </div>
   )
 }
