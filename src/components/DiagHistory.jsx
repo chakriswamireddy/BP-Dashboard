@@ -9,7 +9,7 @@ function DiagHistory({selectedPateint}) {
   // console.log(selectedPateint?.diagnosis_history[0])
     
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col h-2/3'>
     <div>Diagonal History</div>
     {/* {selectedPateint} */}
 
@@ -18,15 +18,15 @@ function DiagHistory({selectedPateint}) {
         <div className='flex'>
             {/* ['Respiratory Rate','Temperature','Heart Rate'] */}
 
-            <div className='bg-blue-100 w-1/3 h-48  border-4'>
-                <img src={lungsSvg} className='size-20 rounded background-white' />
+            <div className='bg-blue-100 w-1/3 h-48  border-4 flex flex-col pl-4 '>
+                <img src={lungsSvg} className='size-20 rounded background-white self-center ' />
 
-                <p> Respiratory Rate  </p>
+                <p className='font-thin'> Respiratory Rate  </p>
                 <p> {selectedPateint?.diagnosis_history[0].respiratory_rate.value} bpm </p>
                 <p> {selectedPateint?.diagnosis_history[0].respiratory_rate.levels} </p>
 
             </div>
-            <div className='bg-blue-100 w-1/3 h-48  border-4'>
+            <div className='bg-red-100 w-1/3 h-48  border-4 '>
                 <img src={tempSvg} className='size-20 rounded background-white' />
 
                 <p> Temperature  </p>
@@ -34,7 +34,7 @@ function DiagHistory({selectedPateint}) {
                 <p> {selectedPateint?.diagnosis_history[0].temperature.levels} </p>
 
             </div>
-            <div className='bg-blue-100 w-1/3 h-48  border-4'>
+            <div className='bg-pink-100 w-1/3 h-48  border-4'>
                 <img src={heartSvg} className='size-20 rounded background-white' />
 
                 <p> Heart Rate  </p>

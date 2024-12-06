@@ -1,10 +1,10 @@
 import React from 'react'
 
 function DiagList({patient}) {
-  console.log(patient?.diagnostic_list)
 
   return (
-    <div>
+    <div className=''>
+        <h5> Diagonal List </h5>
         <table>
             <tr>
                 <th> Problem/Diagnosis </th>
@@ -13,9 +13,9 @@ function DiagList({patient}) {
             </tr>
             {patient && patient?.diagnostic_list.map((diag,indx) => (
                 <tr key={indx}>
-                    <td>
-
-                    </td>
+                    <td> {diag.name} </td>
+                    <td> {diag.description} </td>
+                    <td> {diag.status} </td>
                 </tr>
             ))}
             
