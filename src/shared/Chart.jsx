@@ -27,7 +27,7 @@ ChartJS.register(
 function Chart({ patient }) {
 
     const datasets = patient?.diagnosis_history;
-    console.log( typeof datasets)
+    // console.log( typeof datasets)
 
     const data = {
         labels: patient?.diagnosis_history?.map((item) => item.month + " " + item.year),
