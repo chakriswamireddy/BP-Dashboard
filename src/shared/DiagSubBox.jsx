@@ -6,7 +6,7 @@ import ArrowUpSvg from "../assets/icons/ArrowUp.svg";
 
 function DiagSubBox({ color, title, value, level, img }) {
     return (
-        <div className={`bg-${color}-100 w-1/3 min-w-28  h-36 py-2 rounded-xl  flex flex-col pl-4`} style={{width:'27%'}}>
+        <div className={`bg-${color}-100 w-1/3 min-w-28  h-max py-2 rounded-xl  flex flex-col pl-4`} style={{width:'27%'}}>
 
             <img src={img} className=' size-12 sm:size-14 rounded background-white self-center justify-self-center' />
 

@@ -3,31 +3,8 @@ import React from 'react'
 function DiagList({ patient }) {
 
     return (
-        <div className='bg-white rounded-xl p-4 w-full h-48'>
+        <div className='bg-white rounded-xl p-4 w-full h-1/4'>
             <h5> Diagonal List </h5>
-            {/* <table className='w-full pl-2 table-auto mt-2 '>
-            <thead className='bg-blue-500    rounded-lg font-medium text-sm px-2 my-2' >
-
-            
-            <tr   >
-                <td> Problem/Diagnosis </td>
-                <td> Description </td>
-                <td> Status </td>
-            </tr>
-            </thead>
-            <tbody>
-
-            
-            {patient && patient?.diagnostic_list.map((diag,indx) => (
-                <tr key={indx} className='text-xs font-normal mb-1'>
-                    <td> {diag.name} </td>
-                    <td> {diag.description} </td>
-                    <td> {diag.status} </td>
-                </tr>
-            ))}
-            </tbody>
-            
-        </table> */}
 
             <div className="w-full pl-2 mt-2 h-32 overflow-y-auto">
                 
@@ -46,7 +23,7 @@ function DiagList({ patient }) {
                         style={{ gridTemplateColumns: "1.5fr 3fr 1fr" }}>
                         <div>{diag.name}</div>
                         <div>{diag.description}</div>
-                        <div className='w-1/6 border'>{diag.status}</div>
+                        <div className='w-1/6 '>{diag.status}</div>
                     </div>
                 ))}
             </div>

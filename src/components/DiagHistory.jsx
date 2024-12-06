@@ -10,7 +10,7 @@ function DiagHistory({ selectedPateint }) {
   // console.log(selectedPateint?.diagnosis_history[0])
 
   return (
-    <div className='flex flex-col h-2/3 bg-white rounded-xl p-4 gap-2'>
+    <div className='flex flex-col h-2/3 bg-white rounded-xl p-4 justify-between'>
       <div>Diagonal History</div>
       {/* {selectedPateint} */}
 

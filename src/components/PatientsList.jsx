@@ -10,7 +10,7 @@ function PatientsList({patientsData}) {
   
 
     return (
-        <div className='sm:w-1/5  shadow-xl rounded-lg p-2 h-60   md:h-full  bg-white' >
+        <div className=' w-full lg:w-1/5 basis-0 sm:basis-full md:basis-0 shadow-xl rounded-lg p-2 h-60  md:h-full  bg-white' >
 
             <div className='flex justify-between mb-1'>
                 <p className='font-bold'> Patients  </p>

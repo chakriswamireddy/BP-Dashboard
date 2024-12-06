@@ -11,7 +11,7 @@ function ProfileCard({ patient}) {
 
 
   return (
-    <div className=' flex flex-col bg-white items-start gap-2 w-full rounded-xl py-2'>
+    <div className=' flex flex-col bg-white items-start gap-2 w-full px-0 sm:px-4 md:px-0 rounded-xl py-2'>
         <img src={patient?.profile_picture} alt="profile_pic" className='size-20 sm:size-32 self-center' />
         <p className='self-center mb-2'> {patient?.name} </p>
 

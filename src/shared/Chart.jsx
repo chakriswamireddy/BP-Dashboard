@@ -96,7 +96,13 @@ function Chart({ patient }) {
     };
 
     return (
-        <div style={{ height: '200px', width:'100%' }} className="border   mx-auto">
+        <div style={{ height: '250px', width:'100%' }} className="border  relative  mx-auto">
+
+
+        <span className="font-bold pl-4">Blood Pressure </span>
+        <select className="absolute outline-none right-0" name="" id="">
+            <option value="">Last 6 Months</option>
+        </select>
 
             <Line data={data} options={options} height={700}  />
 

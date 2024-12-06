@@ -26,11 +26,11 @@ function App() {
   }, [])
 
   return (
-    <div className='flex flex-col sm:flex-row md:h-screen gap-4 bg-blue-500 p-2'>
+    <div className='flex flex-col sm:flex-row flex-nowrap sm:flex-wrap md:flex-nowrap md:h-screen gap-4 bg-blue-50 p-2 '>
       <PatientsList patientsData={patientsData} />
       {selectedPateint &&
         <>
-          <div className='flex flex-col h-full  w-full sm:w-3/5 gap-4 '>
+          <div className='flex flex-col h-full border  w-full sm:w-3/5 gap-4 '>
             <DiagHistory selectedPateint={selectedPateint} />
             <DiagList patient={selectedPateint} />
           </div>
